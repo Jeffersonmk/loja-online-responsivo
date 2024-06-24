@@ -49,3 +49,9 @@ nav li {
     width: 300px;
     height: 300px;
 }
+
+
+.container-produtos {
+    display: flex;
+    gap: 20px;
+}
