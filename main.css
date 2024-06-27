@@ -5,31 +5,39 @@
 }
 
 body {
-    background-color: rgb(250, 250, 250);
+    height: 100%;
+    background-color: rgb(230, 230, 230);
 }
 
-nav {
-    display: flex;
-}
-
-nav li {
-    display: inline-block;
-    align-items: center;
-    margin-top: 23px;
+.container {
+    margin: 0;
+    display: grid;
+    place-items: center; /* Centraliza tanto horizontalmente quanto verticalmente */
+    padding-left: 300px;
+    padding-right: 300px;
+    box-sizing: border-box; /* Inclui o padding no cálculo do tamanho total */
+    padding-top: 70px; 
+    /* Compensa a altura do .menu */
 }
 
 .menu {
+    position: fixed;
     height: 60px;
     background-color: red;
     justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Certifica-se de que a menu fique acima do conteúdo */
+    padding-left: 275px;
+    padding-right: 275px;
 }
 
 .menu h1 {
     font-family: "Share Tech Mono", monospace;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 50px;
     color: white;
-    margin-top: 10px;
 }
 
 .menu a {
@@ -38,6 +46,27 @@ nav li {
     font-style: normal;
     color: white;
     font-size: 18px;
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adiciona algum padding para espaçamento interno */
+}
+
+nav li {
+    display: inline-block;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: row; /* Dispor itens lado a lado */
+    gap: 20px;
+    margin-bottom: 10px;
 }
 
 .sobre img {
@@ -45,13 +74,207 @@ nav li {
     height: 500px;
 }
 
+.linha-vertical {
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 .imagem-produto {
     width: 300px;
     height: 300px;
 }
 
+.title-produtos h1 {
+    text-align: left;
+}
+
+.title-produtos {
+    width: 100%; /* Define a largura da div para 100% do contêiner pai */
+    display: flex; /* Usa flexbox para permitir ajustes adicionais se necessário */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: flex-start;  /* Alinha os itens à esquerda */
+}
 
 .container-produtos {
     display: flex;
     gap: 20px;
+    margin-bottom: 20px;
+}
+
+.produto {
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+}
+
+.produto img {
+    margin-bottom: 10px;
+}
+
+.container-produtos button {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    background-color: red;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        max-width: 640px;
+        padding-left: 30px; /* Aumenta o padding para mais espaço nas laterais */
+        padding-right: 30px;
+    }
+
+    .menu {
+        position: fixed;
+        background-color: red;
+        height: 80px;
+        width: 100%;
+        max-width: 640px;
+        justify-content: center;
+        display: flex; 
+        z-index: 1000; /* Certifica-se de que a menu fique acima do conteúdo */
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    nav {
+        width: 100%; /* Garante que o nav ocupe toda a largura da .menu */
+        display: flex;
+        justify-content: space-between; /* Espaço entre h1 e os itens de menu */
+        align-items: center;
+    }
+
+    .menu h1 {
+        font-family: "Share Tech Mono", monospace;
+        font-weight: bold;
+        font-size: 50px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .sobre {
+        display: flex;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 10px;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .sobre img {
+        width: 100%; /* Ajusta a largura da imagem para 100% do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-top: 30px;
+    }
+
+    .sobre div {
+        width: 100%;  /* Ajusta a largura do texto para 100% do contêiner */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .linha-vertical {
+        width: 100%;
+        height: 2px;
+        background-color: red;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .title-produtos {
+        align-items: center;  /* Centraliza os itens horizontalmente */
+    }
+
+    .container-produtos {
+        display: flex;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        gap: 20px;  /* Espaço entre os produtos */
+        margin-bottom: 20px;
+        width: calc(100% - 40px); /* Ajusta a largura para ocupar o espaço completo */
+        padding-left: 20px; /* Adiciona padding para mais espaço nas laterais */
+        padding-right: 20px;
+    }
+
+    .produto img {
+        width: 100%; /* Ajusta a largura da imagem para 100% do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+
+    .container-produtos button {
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        color: white;
+        background-color: red;
+        width: 500px;
+        height: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .container {
+        max-width: 1023px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+    .menu {
+        position: fixed;
+        background-color: red;
+        height: 80px;
+        width: 100%;
+        max-width: 1023px;
+        justify-content: center;
+        display: flex; 
+        z-index: 1000; /* Certifica-se de que a menu fique acima do conteúdo */
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    nav {
+        width: 100%; /* Garante que o nav ocupe toda a largura da .menu */
+    }
+    .sobre {
+        display: flex;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 10px;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .sobre img {
+        width: 100%; /* Ajusta a largura da imagem para 100% do contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-top: 30px;
+    }    
+
+    .sobre div {
+        width: 100%;  /* Ajusta a largura do texto para 100% do contêiner */
+    }
+
+    .linha-vertical {
+        width: 100%;
+    }
+
+    .container-produtos {
+        display: flex;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        gap: 20px;  /* Espaço entre os produtos */
+        margin-bottom: 20px;    
+    }
 }
